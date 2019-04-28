@@ -23,7 +23,6 @@
   },
   "homepage": "https://github.com/syzoj/syzoj#readme",
   "dependencies": {
-    "amqplib": "^0.5.2",
     "ansi-to-html": "^0.6.10",
     "async-lock": "^1.2.0",
     "body-parser": "^1.15.2",
@@ -65,6 +64,7 @@
     "syzoj-renderer": "^1.0.5",
     "tempfile": "^2.0.0",
     "tmp-promise": "^1.0.3",
+    "uuid": "^3.3.2",
     "waliyun": "^3.1.1",
     "winston": "^3.2.1",
     "xss": "^1.0.6"

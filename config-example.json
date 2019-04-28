@@ -110,7 +110,7 @@
     }
   ],
   "session_secret": "@SESSION_SECRET@",
-  "rabbitMQ": "amqp://localhost/",
+  "judge_token": "@JUDGE_TOKEN@",
   "redis": "redis://127.0.0.1:6379",
   "email_jwt_secret": "@EMAIL_JWT_SECRET@",
   "google_analytics": "UA-XXXXXXXX-X",
@@ -120,5 +120,7 @@
   "google_fonts": {
     "type": "like-google-fonts",
     "url": "https://fonts.loli.net"
-  }
+  },
+  "no_cdn": false,
+  "username_regex": "^[a-zA-Z0-9\\-\\_]+$"
 }

@@ -4,9 +4,7 @@
 
 一个用于算法竞赛的在线评测系统。
 
-此项目为重写过的、原 Python/Flask 版 SYZOJ 的**官方**后继版本，由原作者 [@Chenyao2333](https://github.com/Chenyao2333) 授权。
-
-目前由 [LibreOJ](https://loj.ac) 维护。
+本项目继承自 [@Chenyao2333](https://github.com/Chenyao2333) 的 [SYZOJ](https://github.com/Zhengzhou-11-Highschool/syzoj)，目前由 [LibreOJ](https://loj.ac) 维护。
 
 # 部署
 见本项目 Wiki 中的 [部署指南](https://github.com/syzoj/syzoj/wiki/%E9%83%A8%E7%BD%B2%E6%8C%87%E5%8D%97)。
@@ -48,3 +46,7 @@ ALTER TABLE `user` ADD `prefer_formatted_code` TINYINT(1) NOT NULL DEFAULT 1 AFT
 为使代码格式化功能正常工作，`clang-format` 需要被安装。[migrates/format-old-codes.js](migrates/format-old-codes.js) 可能对格式化旧提交记录的代码有帮助。
 
 从该 commit [c192e8001ac81cab132ae033b39f09a094587633](https://github.com/syzoj/syzoj/commit/c192e8001ac81cab132ae033b39f09a094587633)（2019 年 3 月 23 日）前更新的用户**必须**在网站服务器上安装 `redis-server` 与 [pygments](http://pygments.org/)。旧的 Markdown 内容可能因切换到新渲染器被破坏，[migrates/html-table-merge-cell-to-md.js](migrates/html-table-merge-cell-to-md.js) 可能对迁移有所帮助。
+
+从该 commit [7b03706821c604f59fe8263286203d57d634c421](https://github.com/syzoj/syzoj/commit/7b03706821c604f59fe8263286203d57d634c421)（2019 年 3 月 27 日）前更新的用户**必须**在其 systemd 配置文件 `syzoj-web.service` 中的 `[Service]` 中加入一行 `RemainAfterExit=yes`，以使得重启服务功能正常工作。
+
+从该 commit [d1d019383e5cb0c96ed2191f900970654e4055c0](https://github.com/syzoj/syzoj/commit/d1d019383e5cb0c96ed2191f900970654e4055c0)（2019 年 3 月 30 日）前更新的用户**必须**将网站服务器上的 Redis 更新到 5 或更高版本，并填写网站配置中的 `judge_token` 为随机密钥。评测端需要被同步更新，并填写 `daemon-config.json` 中的 `ServerUrl` 和 `ServerToken`（需要与 `judge_token` 相同）。如果评测端与网站在不同的服务器上，建议迁移 RabbitMQ 到评测服务器上。
